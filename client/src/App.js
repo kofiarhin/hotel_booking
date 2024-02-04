@@ -1,4 +1,10 @@
 import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.scss";
+import Home from "./Pages/Home";
+import Header from "./components/Header";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const App = () => {
   useEffect(() => {
@@ -15,7 +21,16 @@ const App = () => {
   }, []);
   return (
     <div>
-      <h1>Hello World</h1>
+      <div className="container">
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 };

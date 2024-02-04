@@ -1,0 +1,47 @@
+#get rooms
+###
+GET http://localhost:5000/rooms
+
+#create room
+###
+POST http://localhost:5000/rooms
+Content-Type: application/json
+
+{
+    "name": "delux room",
+    "desc": "some description about room",
+    "price": 400,
+    "roomNumbers": [{ "number": 302, "unavailableDates": ["2024-01-15"]},
+    { "number": 308, "unavailableDates": ["2024-01-17"]}
+     ]
+}
+
+#delete room
+###
+DELETE http://localhost:5000/rooms/65bb8c05ed42ced6390a9062
+
+
+#delete room number
+###
+DELETE http://localhost:5000/rooms/65bb900410060fc12b393314/403
+
+#add room number
+###
+PUT http://localhost:5000/rooms/add/65bb900410060fc12b393314
+Content-Type: application/json
+
+{
+    "number": 403,
+    "unavailableDates": ["2024-01-22"]
+}
+
+
+#update room
+###
+PUT http://localhost:5000/rooms/65bb900410060fc12b393314
+Content-Type: application/json
+
+{
+    "name": "standard room",
+    "price": 150
+}

@@ -55,6 +55,76 @@ export const getRooms = createAsyncThunk(
   }
 );
 
+export const getRoom = createAsyncThunk(
+  "room/getroom",
+  async (roomId, thunkApi) => {
+    try {
+      const res = await fetch(`/rooms/${roomId}`);
+
+      if (!res.ok) {
+        const error = await res.json();
+        return thunkApi.rejectWithValue(error);
+      }
+
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+// delete room
+export const deleteRoom = createAsyncThunk(
+  "room/delete",
+  async (roomId, thunkApi) => {
+    try {
+      const res = await fetch(`/rooms/${roomId}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        return thunkApi.rejectWithValue(error);
+      }
+
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+// update room
+export const updateRoom = createAsyncThunk(
+  "room/update",
+  async (roomData, thunkApi) => {
+    const { roomId, ...rest } = roomData;
+
+    console.log(roomId);
+    try {
+      const res = await fetch(`/rooms/${roomId}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        method: "PUT",
+        body: JSON.stringify(rest),
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        return thunkApi.rejectWithValue(error);
+      }
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 const roomSlice = createSlice({
   name: "room",
   initialState,
@@ -92,6 +162,36 @@ const roomSlice = createSlice({
       .addCase(getRooms.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(deleteRoom.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteRoom.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.rooms = state.rooms.filter(
+          (room) => room._id !== action.payload.id.toString()
+        );
+      })
+      .addCase(deleteRoom.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(updateRoom.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateRoom.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        // fix error in back end to return all rooms
+        state.rooms = action.payload;
+      })
+      .addCase(updateRoom.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
         state.message = action.payload;
       });
   },

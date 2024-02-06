@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { getRooms, reset } from "../features/Room/roomSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Rooms = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,11 @@ const Rooms = () => {
       <h1 className="heading">Rooms</h1>
       {rooms.length > 0
         ? rooms.map((room) => {
-            return <h2 key={room._id}> {room.name} </h2>;
+            return (
+              <Link to={`/rooms/${room._id}`} key={room._id}>
+                <h1> {room.name} </h1>
+              </Link>
+            );
           })
         : null}
     </div>

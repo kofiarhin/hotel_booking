@@ -18,7 +18,7 @@ Content-Type: application/json
 
 #delete room
 ###
-DELETE http://localhost:5000/rooms/65bb8c05ed42ced6390a9062
+DELETE http://localhost:5000/rooms/65c1343a065bc696958ae04e
 
 
 #delete room number

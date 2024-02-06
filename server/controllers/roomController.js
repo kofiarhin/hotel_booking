@@ -1,7 +1,7 @@
 const Room = require("../models/roomModel");
 
 const createRoom = async (req, res) => {
-  const { name, price, desc, roomNumbers } = req.body;
+  const { name, price, desc, roomNumbers, img } = req.body;
 
   try {
     const room = await Room.create({
@@ -9,6 +9,7 @@ const createRoom = async (req, res) => {
       price,
       desc,
       roomNumbers,
+      img,
     });
 
     return res.json(room);
@@ -116,7 +117,7 @@ const addRoomNumber = async (req, res) => {
 const updateRoom = async (req, res, next) => {
   const { id } = req.params;
 
-  const { roomNumbers, ...other } = req.body;
+  const { roomNumbers, img, ...other } = req.body;
 
   try {
     const room = await Room.findByIdAndUpdate(
@@ -126,6 +127,9 @@ const updateRoom = async (req, res, next) => {
         $addToSet: {
           roomNumbers: {
             $each: roomNumbers,
+          },
+          img: {
+            $each: img,
           },
         },
       },
@@ -139,7 +143,8 @@ const updateRoom = async (req, res, next) => {
       throw new Error("there was a problem updading room");
     }
 
-    return res.status(201).json(room);
+    const rooms = await Room.find();
+    return res.status(201).json(rooms);
   } catch (error) {
     next(error);
   }

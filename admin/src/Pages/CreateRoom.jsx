@@ -3,11 +3,14 @@ import { useDispatch } from "react-redux";
 import { createRoom, reset } from "../features/Room/roomSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { uploadImage } from "../utils/helper";
 
 const CreateRoom = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isSuccess, isError, message } = useSelector((state) => state.room);
+
+  const [files, setFiles] = useState("");
   const [formData, setFormData] = useState({
     name: "test name",
     description: "test description",
@@ -31,24 +34,42 @@ const CreateRoom = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleFileChange = (e) => {
+    setFiles(e.target.files);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let formatRooms = [];
-    if (rooms.length > 0) {
-      formatRooms = rooms.split(",").map((room) => ({
-        number: parseInt(room),
-        unavailableDates: [],
-      }));
+    try {
+      let list = [];
+      list = await Promise.all(
+        Object.values(files).map(async (file) => {
+          const url = await uploadImage(file);
+          return url;
+        })
+      );
+
+      let formatRooms = [];
+      if (rooms.length > 0) {
+        formatRooms = rooms.split(",").map((room) => ({
+          number: parseInt(room),
+          unavailableDates: [],
+        }));
+      }
+
+      const dataToSubmit = {
+        name,
+        price,
+        desc: description,
+        roomNumbers: formatRooms,
+        img: list,
+      };
+
+      dispatch(createRoom(dataToSubmit));
+      setFiles("");
+    } catch (error) {
+      console.log(error.message);
     }
-
-    const dataToSubmit = {
-      name,
-      price,
-      desc: description,
-      roomNumbers: formatRooms,
-    };
-
-    dispatch(createRoom(dataToSubmit));
   };
   return (
     <div>
@@ -86,6 +107,16 @@ const CreateRoom = () => {
               value={price}
               placeholder="Enter Price"
               onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="">Upload images</label>
+            <input
+              type="file"
+              name="file"
+              multiple
+              onChange={handleFileChange}
             />
           </div>
 

@@ -12,7 +12,10 @@ export const uploadImage = async (file) => {
     body: formData,
   });
 
+  if (!response.ok) {
+    throw new Error("something went wrong");
+  }
+
   const data = await response.json();
   return data.secure_url;
-  return response.data.secure_url;
 };

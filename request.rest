@@ -45,3 +45,38 @@ Content-Type: application/json
     "name": "standard room",
     "price": 150
 }
+
+
+#get bookings
+###
+GET http://localhost:5000/bookings
+
+#get single booking
+###
+GET http://localhost:5000/bookings/65c391db17a50d47f35d5a9e
+
+#create booking
+###
+POST http://localhost:5000/bookings
+Content-Type: application/json
+
+{
+    "name": "kyrie Irving",
+    "email": "kyrie@gmail.com",
+    "checkIn": "2024-01-15",
+    "checkOut": "2024-01-17"
+}
+
+#update booking
+###
+PUT http://localhost:5000/bookings/65c391db17a50d47f35d5a9e
+Content-Type: application/json
+
+{
+    "confirmed": "false",
+    "name": "joshua obu"
+}
+
+#delete booking
+###
+DELETE http://localhost:5000/bookings/65c391db17a50d47f35d5a9e

@@ -20,3 +20,6 @@ room numbers are not unique when you update them
 fix issue in backends
 
 primary color: #A49169
+
+//todo
+create an image carousel for images to display

@@ -1,0 +1,48 @@
+$primary:  #A49169;
+
+.rooms-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    .room-unit {
+        margin-bottom: 1rem;
+
+        h1 {
+                font-weight: 300;
+                text-align: center;
+                margin: 1rem 0rem;
+            }
+
+        .button-wrapper {
+            text-align: center;
+            a {
+                display: inline-block;
+                background-color: $primary;
+                color: white;
+                padding: 1rem 2rem;
+
+            }
+        }
+    }
+   
+
+    img {
+        width: 100%;
+    }
+    .img-wrapper {
+        height: 70vh;
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media(max-width: 800px) {
+    .room-wrapper {
+        display: block;
+        .img-wrapper {
+            height: 40vh;
+        }
+    }
+}

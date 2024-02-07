@@ -1,0 +1,17 @@
+$primary: #A49169;
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0rem;
+
+   nav  a {
+        display: inline-block;
+        margin-left: 1rem;
+        font-weight: 500;
+        background-color: $primary;
+        padding: 0.5rem 1rem;
+        color: white;
+    }
+}

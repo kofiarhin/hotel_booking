@@ -1,0 +1,72 @@
+$primary: #A49169;
+
+#booking {
+ img { 
+    width: 100%;
+ }
+
+ .col-wrapper {
+    
+    .form-wrapper {
+        width: 540px;
+        max-width: 100%;
+        margin: 0 auto; 
+    }
+    .text-wrapper {
+        text-align: center;
+        p {
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-weight: 300;
+            font-size: 2rem;
+        }
+    }
+    .img-wrapper {
+        height: 80vh;
+        margin-bottom: 2rem;
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+ }
+
+ form {
+    .input-group{
+        margin-bottom: 1rem;
+        label {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 0rem;
+            font-size: 1rem;
+            text-indent: 20px; 
+        }
+
+        button {
+            padding: 1rem 0rem;
+            display: block;
+            width: 100%;
+            background-color: $primary;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+ }
+}
+
+@media(max-width: 800px) {
+    #booking {
+        .col-wrapper {
+            display: block;
+        }
+    }
+}

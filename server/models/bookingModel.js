@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema(
   {
+    roomId: {
+      // check if this is correct
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Room",
+    },
     name: {
       type: String,
       required: true,

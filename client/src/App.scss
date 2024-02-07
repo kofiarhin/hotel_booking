@@ -1,3 +1,5 @@
+$primary: #A49169;
+
 * {
   margin: 0;
   padding: 0;
@@ -20,16 +22,6 @@ a {
   width: 1200px;
   max-width: 90%;
   margin: 0 auto;
+  padding-bottom: 8rem;
 }
 
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0rem;
-  a {
-    display: inline-block;
-    margin-left: 1rem;
-    font-weight: 500;
-  }
-}

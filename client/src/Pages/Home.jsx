@@ -1,7 +1,8 @@
+import Landing from "../components/Landing/Landing";
 const Home = () => {
   return (
     <div>
-      <h1 className="heading">Home </h1>
+      <Landing />
     </div>
   );
 };

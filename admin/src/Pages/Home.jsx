@@ -1,7 +1,10 @@
+import Landing from "../components/Landing/Landing";
+import RoomList from "../components/RoomList/RoomList";
 const Home = () => {
   return (
     <div>
-      <h1 className="heading">Home </h1>
+      <Landing />
+      <RoomList />
     </div>
   );
 };

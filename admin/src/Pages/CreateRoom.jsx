@@ -13,12 +13,12 @@ const CreateRoom = () => {
   const [files, setFiles] = useState("");
   const [formData, setFormData] = useState({
     name: "test name",
-    description: "test description",
+    desc: "test description",
     price: 200,
     rooms: "400,200,150,233",
   });
 
-  const { name, description, price, rooms } = formData;
+  const { name, desc, price, rooms } = formData;
 
   useEffect(() => {
     if (isSuccess) {
@@ -60,7 +60,7 @@ const CreateRoom = () => {
       const dataToSubmit = {
         name,
         price,
-        desc: description,
+        desc,
         roomNumbers: formatRooms,
         img: list,
       };
@@ -89,23 +89,22 @@ const CreateRoom = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="name">Description</label>
-            <input
-              type="text"
-              name="description"
-              value={description}
-              placeholder="Enter Description"
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="input-group">
             <label htmlFor="name">Price</label>
             <input
               type="number"
               name="price"
               value={price}
               placeholder="Enter Price"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="description">Description</label>
+            <textarea
+              name="desc"
+              value={desc}
+              placeholder="Enter Description"
               onChange={handleChange}
             />
           </div>

@@ -35,10 +35,18 @@ const Room = () => {
   return (
     <div>
       {room ? (
-        <div>
+        <div id="room">
+          <div className="img-wrapper">
+            <img src={room.img[0]} />
+          </div>
           <h1 className="heading"> {room.name} </h1>
-          <button onClick={handleDelete}> Delete Room </button>
-          <Link to={`/rooms/edit/${room._id}`}> Edit Room </Link>
+          <div className="text-wrapper">
+            <p> {room.desc} </p>
+          </div>
+          <div className="button-wrapper">
+            <button onClick={handleDelete}> Delete Room </button>
+            <Link to={`/rooms/edit/${room._id}`}> Edit Room </Link>
+          </div>
         </div>
       ) : (
         <div>

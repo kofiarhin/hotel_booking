@@ -4,7 +4,7 @@ import { getRooms, reset } from "./features/Room/roomSlice";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Home from "./Pages/Home";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import CreateRoom from "./Pages/CreateRoom";

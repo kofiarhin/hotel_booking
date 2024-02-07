@@ -117,21 +117,11 @@ const addRoomNumber = async (req, res) => {
 const updateRoom = async (req, res, next) => {
   const { id } = req.params;
 
-  const { roomNumbers, img, ...other } = req.body;
-
   try {
     const room = await Room.findByIdAndUpdate(
       id,
       {
-        $set: other,
-        $addToSet: {
-          roomNumbers: {
-            $each: roomNumbers,
-          },
-          img: {
-            $each: img,
-          },
-        },
+        $set: req.body,
       },
       {
         new: true,

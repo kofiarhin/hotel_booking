@@ -7,6 +7,7 @@ const Rooms = () => {
   const dispatch = useDispatch();
   const { isSuccess, rooms } = useSelector((state) => state.room);
 
+  console.log(rooms);
   useEffect(() => {
     dispatch(getRooms());
   }, []);
@@ -16,17 +17,24 @@ const Rooms = () => {
   }, [isSuccess]);
 
   return (
-    <div>
+    <div id="rooms">
       <h1 className="heading">Rooms</h1>
-      {rooms.length > 0
-        ? rooms.map((room) => {
-            return (
-              <Link to={`/rooms/${room._id}`} key={room._id}>
-                <h1> {room.name} </h1>
-              </Link>
-            );
-          })
-        : null}
+
+      <div className="room-container">
+        {rooms.length > 0 ? (
+          <div className="room-wrapper">
+            {" "}
+            {rooms.map((room) => {
+              return (
+                <Link to={`/rooms/${room._id}`} className="room-unit">
+                  <img src={room.img[0]} alt="" />
+                  <h1 className="heading"> {room.name} </h1>{" "}
+                </Link>
+              );
+            })}{" "}
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };

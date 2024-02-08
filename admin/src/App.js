@@ -11,6 +11,9 @@ import CreateRoom from "./Pages/CreateRoom";
 import Rooms from "./Pages/Rooms";
 import Room from "./Pages/Room";
 import EditRoom from "./Pages/EditRoom";
+import Bookings from "./Pages/Bookings/Bookings";
+import Booking from "./Pages/Booking/Booking";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -23,7 +26,11 @@ const App = () => {
           <Route path="/rooms/:id" element={<Room />} />
           <Route path="/rooms/create" element={<CreateRoom />} />
           <Route path="/rooms/edit/:id" element={<EditRoom />} />
+          <Route path="/bookings" element={<Bookings />} />
+          <Route path="/bookings/:id" element={<Booking />} />
         </Routes>
+
+        <Footer />
       </Router>
     </div>
   );

@@ -1,7 +1,7 @@
 const Booking = require("../models/bookingModel");
 const getBookings = async (req, res, next) => {
   try {
-    const bookings = await Booking.find();
+    const bookings = await Booking.find().populate("roomId");
     if (!bookings) {
       res.status(400);
       throw new Error("bookings not found");
@@ -32,7 +32,7 @@ const createBooking = async (req, res, next) => {
 const getBooking = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const booking = await Booking.findById(id);
+    const booking = await Booking.findById(id).populate("roomId");
     if (!booking) {
       res.status(400);
       throw new Error("booking not found");
@@ -82,10 +82,28 @@ const deleteBooking = async (req, res, next) => {
     next(error);
   }
 };
+
+// delete all bookings
+const deleteAllBookings = async (req, res, next) => {
+  try {
+    const bookings = await Booking.deleteMany({});
+
+    if (!bookings) {
+      res.status(400);
+      throw new Error("there was a problem deleting booking");
+    }
+
+    return res.json({ success: true, message: "booings deleted" });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 module.exports = {
   getBookings,
   getBooking,
   createBooking,
   updateBooking,
   deleteBooking,
+  deleteAllBookings,
 };

@@ -20,8 +20,9 @@ const bookingSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    checkout: {
+    checkOut: {
       type: Date,
+      required: true,
     },
     confirmed: {
       type: Boolean,

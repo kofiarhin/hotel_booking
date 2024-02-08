@@ -1,0 +1,40 @@
+// App.scss
+.booking {
+    display: flex;
+    justify-content: center;
+    /* Center the content vertically */
+
+    .entry {
+        border: 2px solid #3498db;
+        border-radius: 10px;
+        padding: 20px;
+        width: 80%;
+        max-width: 800px;
+        /* Set a maximum width for larger screens */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+
+            button {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 14px;
+
+                &:hover {
+                    background-color: #2980b9;
+                }
+            }
+        }
+    }
+}

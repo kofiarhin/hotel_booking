@@ -47,9 +47,7 @@ Content-Type: application/json
 }
 
 
-#get bookings
-###
-GET http://localhost:5000/bookings
+
 
 #get single booking
 ###
@@ -79,4 +77,12 @@ Content-Type: application/json
 
 #delete booking
 ###
-DELETE http://localhost:5000/bookings/65c391db17a50d47f35d5a9e
+DELETE http://localhost:5000/bookings/65c397175e06467cf6ed5c9f
+
+#get bookings
+###
+GET http://localhost:5000/bookings
+
+# delete all bookings
+###
+DELETE http://localhost:5000/bookings

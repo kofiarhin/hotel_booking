@@ -1,6 +1,7 @@
 import "./room.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Carousel from "../../components/Carousel/Carousel";
 
 const Room = () => {
   const [room, setRoom] = useState(null);
@@ -21,12 +22,9 @@ const Room = () => {
   }, []);
   return (
     <div id="room">
+      {room && <Carousel data={room.img} title={room.name} />}
       {room && (
         <div className="room-wrapper">
-          <div className="img-wrapper">
-            <img src={room.img[0]} />
-          </div>
-
           <div className="text-wrapper">
             <p> {room.desc} </p>
           </div>

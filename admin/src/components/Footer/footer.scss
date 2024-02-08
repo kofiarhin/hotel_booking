@@ -1,0 +1,33 @@
+// Footer.scss
+#footer {
+    background-color: transparent;
+    /* or you can omit this line */
+    color: #000;
+    /* Adjust the text color to your preference */
+    padding: 30px 20px;
+    /* Add extra padding to the top and bottom, and keep 20px padding on the left and right */
+    text-align: center;
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        font-size: 24px;
+        justify-content: center;
+        /* Center the icons horizontally */
+
+        a {
+            color: rgba(164, 145, 105, 1);
+            /* Set the color to #A49169 without transparency */
+            text-decoration: none;
+            transition: color 0.3s, opacity 0.3s, font-size 0.3s;
+            /* Smooth transition on hover */
+
+            &:hover {
+                color: rgba(164, 145, 105, 0.8);
+                /* Reduce transparency on hover */
+                font-size: 28px;
+                /* Increase font size on hover */
+            }
+        }
+    }
+}

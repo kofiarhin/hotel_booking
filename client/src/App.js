@@ -8,6 +8,7 @@ import Register from "./Pages/Register";
 import Room from "./Pages/Room/Room";
 import Rooms from "./Pages/Rooms";
 import Booking from "./Pages/Booking/Booking";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
             <Route path="/rooms/:id" element={<Room />} />
             <Route path="/bookings/:id" element={<Booking />} />
           </Routes>
+
+          <Footer />
         </Router>
       </div>
     </div>

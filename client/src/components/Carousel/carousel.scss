@@ -1,0 +1,11 @@
+#carousel {
+margin-bottom: 2rem; 
+  .img-wrapper {
+   //  height: 60vh;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

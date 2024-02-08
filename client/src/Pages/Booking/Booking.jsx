@@ -1,16 +1,26 @@
 import "./booking.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { createBooking, reset } from "../../features/Booking/bookingSlice";
 import { getRoom } from "../../utils/helper";
+import Carousel from "../../components/Carousel/Carousel";
+
 const Booking = () => {
-  const { id } = useParams();
+  const { id: roomId } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { isSuccess } = useSelector((state) => state.booking);
 
   const [room, setRoom] = useState(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    checkIn: "",
-    checkOut: "",
+    name: "test test",
+    email: "test@gmail.com",
+    checkIn: "2024-01-12",
+    checkOut: "2024-01-13",
   });
 
   const { name, email, checkIn, checkOut } = formData;
@@ -18,13 +28,20 @@ const Booking = () => {
   useEffect(() => {
     const getRoomData = async () => {
       try {
-        const data = await getRoom(id);
+        const data = await getRoom(roomId);
         setRoom(data);
       } catch (error) {}
     };
 
     getRoomData();
   }, []);
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/rooms");
+      dispatch(reset());
+    }
+  }, [isSuccess]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -36,18 +53,27 @@ const Booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("create booking");
+    const dataToSubmit = {
+      roomId,
+      name,
+      email,
+      checkIn,
+      checkOut,
+    };
+
+    dispatch(createBooking(dataToSubmit));
   };
+
+  console.log(isSuccess);
   return (
     <div id="booking">
       {room ? (
         <div id="booking">
-          <h1 className="heading"> {room.name} </h1>
+          {/* carousel */}
+          <Carousel data={room.img} title={room.name} />
+
           <div className="col-wrapper">
             <div className="col">
-              <div className="img-wrapper">
-                <img src={room.img[0]} alt="" />
-              </div>
               <div className="text-wrapper">
                 <p> {room.desc} </p>
                 <h2> £{room.price.toFixed(2)} </h2>

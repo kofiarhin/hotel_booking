@@ -11,10 +11,7 @@ const app = express();
 // setup middleware
 app.use(
   cors({
-    origin: [
-      "http://localhost:5000",
-      "https://kf-hotel-booking.onrender.com/rooms",
-    ],
+    origin: ["http://localhost:5000", "https://kf-hotel-booking.onrender.com/"],
   })
 );
 app.use(cookieParser());

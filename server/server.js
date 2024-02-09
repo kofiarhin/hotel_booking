@@ -32,7 +32,7 @@ app.get("/users", (req, res) => {
   return res.json({ messge: "get list of users" });
 });
 
-app.use("/rooms", roomRoutes);
+app.use("/api/rooms", roomRoutes);
 app.use("/bookings", bookingRoutes);
 app.use(errorHandler);
 

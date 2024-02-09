@@ -12,7 +12,7 @@ export const getRooms = createAsyncThunk(
   "room/getAllRooms",
   async (_, thunkApi) => {
     try {
-      const res = await fetch("/rooms");
+      const res = await fetch("/api/rooms");
       if (!res.ok) {
         const error = await res.json();
         return thunkApi.rejectWithValue(error);

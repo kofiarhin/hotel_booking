@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const dotenv = require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
@@ -20,9 +21,6 @@ connectDB();
 // setup routes
 
 // testing stuff
-app.get("/", (req, res) => {
-  return res.json({ message: "welcome" });
-});
 
 //testing get users
 app.get("/users", (req, res) => {
@@ -31,6 +29,23 @@ app.get("/users", (req, res) => {
 
 app.use("/api/rooms", roomRoutes);
 app.use("/api/bookings", bookingRoutes);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+
+  app.get("*", (req, res) => {
+    const fileUrl = path.resolve(
+      __dirname,
+      "..",
+      "client",
+      "build",
+      "index.html"
+    );
+
+    console.log(fileUrl);
+    return res.sendFile(fileUrl);
+  });
+}
 app.use(errorHandler);
 
 const port = process.env.PORT;

@@ -13,9 +13,7 @@ export const getRooms = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       // https://kf-hotel-booking-apii.onrender.com/api/rooms
-      const res = await fetch(
-        "https://kf-hotel-booking-apii.onrender.com/api/rooms"
-      );
+      const res = await fetch("/api/rooms");
       if (!res.ok) {
         const error = await res.json();
         return thunkApi.rejectWithValue(error);

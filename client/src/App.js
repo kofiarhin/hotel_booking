@@ -9,6 +9,7 @@ import Room from "./Pages/Room/Room";
 import Rooms from "./Pages/Rooms";
 import Booking from "./Pages/Booking/Booking";
 import Footer from "./components/Footer/Footer";
+import Bookings from "./Pages/Bookings/Bookings";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/rooms/:id" element={<Room />} />
+            <Route path="/bookings" element={<Bookings />} />
             <Route path="/bookings/:id" element={<Booking />} />
           </Routes>
 

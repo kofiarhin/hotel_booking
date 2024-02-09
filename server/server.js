@@ -19,13 +19,6 @@ connectDB();
 
 // setup routes
 
-// testing stuff
-
-//testing get users
-app.get("/users", (req, res) => {
-  return res.json({ messge: "get list of users" });
-});
-
 app.use("/api/rooms", roomRoutes);
 app.use("/api/bookings", bookingRoutes);
 
@@ -34,8 +27,6 @@ if (process.env.NODE_ENV === "production") {
 
   app.get("*", (req, res) => {
     const fileUrl = path.resolve(__dirname, "server", "build");
-
-    console.log(fileUrl);
     return res.sendFile(fileUrl);
   });
 }

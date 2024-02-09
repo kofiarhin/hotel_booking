@@ -10,7 +10,6 @@ const cors = require("cors");
 const app = express();
 
 // setup middleware
-app.use(cors());
 
 app.use(cookieParser());
 app.use(express.json());
@@ -31,7 +30,7 @@ app.use("/api/rooms", roomRoutes);
 app.use("/api/bookings", bookingRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
+  app.use(express.static(path.join(__dirname, "../client/build")));
 
   app.get("*", (req, res) => {
     const fileUrl = path.resolve(
@@ -41,8 +40,6 @@ if (process.env.NODE_ENV === "production") {
       "build",
       "index.html"
     );
-
-    console.log(fileUrl);
     return res.sendFile(fileUrl);
   });
 }

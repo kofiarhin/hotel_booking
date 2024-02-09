@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server/server.js",
     "client": "npm run start --prefix client",
-    "admin":"npm run start --prefix admin",
+    "admin": "npm run start --prefix admin",
     "dev-client": "concurrently \"npm run server\" \"npm run client\"",
     "dev-admin": "concurrently \"npm run server\" \"npm run admin\""
   },
@@ -17,6 +17,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",

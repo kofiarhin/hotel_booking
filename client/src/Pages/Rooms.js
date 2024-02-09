@@ -15,7 +15,11 @@ const Rooms = () => {
     <div>
       <h1 className="heading">Rooms</h1>
 
-      {rooms.length > 0 && <RoomList rooms={rooms} />}
+      {rooms.length > 0 ? (
+        <RoomList rooms={rooms} />
+      ) : (
+        <h1 className="heading">Rooms not found</h1>
+      )}
     </div>
   );
 };

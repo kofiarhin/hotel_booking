@@ -5,9 +5,18 @@ const connectDB = require("./config/db");
 const roomRoutes = require("./routes/roomRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const { errorHandler } = require("./middleware/errorHandler");
+const cors = require("cors");
 const app = express();
 
 // setup middleware
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5000",
+      "https://kf-hotel-booking.onrender.com/rooms",
+    ],
+  })
+);
 app.use(cookieParser());
 app.use(express.json());
 

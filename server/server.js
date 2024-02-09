@@ -30,16 +30,12 @@ app.use("/api/rooms", roomRoutes);
 app.use("/api/bookings", bookingRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use(express.static(path.join(__dirname, "/build")));
 
   app.get("*", (req, res) => {
-    const fileUrl = path.resolve(
-      __dirname,
-      "..",
-      "client",
-      "build",
-      "index.html"
-    );
+    const fileUrl = path.resolve(__dirname, "server", "build");
+
+    console.log(fileUrl);
     return res.sendFile(fileUrl);
   });
 }

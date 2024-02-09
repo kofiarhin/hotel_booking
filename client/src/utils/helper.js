@@ -1,5 +1,5 @@
 const getRoom = async (id) => {
-  const res = await fetch(`/rooms/${id}`);
+  const res = await fetch(`/api/rooms/${id}`);
 
   if (!res.ok) {
     throw new Error("room not found");

@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://kf-hotel-booking-apii.onrender.com/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
@@ -29,12 +28,14 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://localhost:5000/",
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
+    
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

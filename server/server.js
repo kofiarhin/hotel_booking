@@ -9,11 +9,8 @@ const cors = require("cors");
 const app = express();
 
 // setup middleware
-app.use(
-  cors({
-    origin: ["http://localhost:5000", "https://kf-hotel-booking.onrender.com/"],
-  })
-);
+app.use(cors());
+
 app.use(cookieParser());
 app.use(express.json());
 
@@ -33,7 +30,7 @@ app.get("/users", (req, res) => {
 });
 
 app.use("/api/rooms", roomRoutes);
-app.use("/bookings", bookingRoutes);
+app.use("/api/bookings", bookingRoutes);
 app.use(errorHandler);
 
 const port = process.env.PORT;

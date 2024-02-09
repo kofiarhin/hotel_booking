@@ -18,7 +18,9 @@ const useFetch = (url) => {
       }
     };
 
-    getData(url);
+    const fetchUrl = `/api/${url}`;
+
+    getData(fetchUrl);
   }, [url]);
 
   return { data, error };

@@ -13,7 +13,7 @@ export const getBookings = createAsyncThunk(
   "booking/getBookings",
   async (bookingData, thunkApi) => {
     try {
-      const res = await fetch("/bookings");
+      const res = await fetch("/api/bookings");
 
       if (!res.ok) {
         const error = await res.json();

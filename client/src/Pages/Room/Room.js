@@ -2,6 +2,7 @@ import "./room.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
+import { Link } from "react-router-dom";
 
 const Room = () => {
   const [room, setRoom] = useState(null);
@@ -30,7 +31,7 @@ const Room = () => {
           </div>
 
           <div className="cta-wrapper">
-            <a href={`/bookings/${id}`}>Book Now</a>
+            <Link to={`/bookings/${id}`}>Book Now</Link>
           </div>
         </div>
       )}

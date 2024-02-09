@@ -15,9 +15,17 @@ app.use(express.json());
 connectDB();
 
 // setup routes
+
+// testing stuff
 app.get("/", (req, res) => {
   return res.json({ message: "welcome" });
 });
+
+//testing get users
+app.get("/users", (req, res) => {
+  return res.json({ messge: "get list of users" });
+});
+
 app.use("/rooms", roomRoutes);
 app.use("/bookings", bookingRoutes);
 app.use(errorHandler);

@@ -28,7 +28,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:5000/",
+  "proxy": "https://kf-hotel-booking-apii.onrender.com/",
   "browserslist": {
     "production": [
       ">0.2%",

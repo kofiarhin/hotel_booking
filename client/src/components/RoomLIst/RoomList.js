@@ -13,7 +13,7 @@ const RoomList = ({ rooms }) => {
               <h1> {room.name} </h1>
             </Link>
             <div className="button-wrapper">
-              <a href={`/bookings/${room._id}`}>Book Now</a>
+              <a href={`/book/${room._id}`}>Book Now</a>
             </div>
           </div>
         ))}

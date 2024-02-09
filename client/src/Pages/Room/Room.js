@@ -31,7 +31,7 @@ const Room = () => {
           </div>
 
           <div className="cta-wrapper">
-            <Link to={`/bookings/${id}`}>Book Now</Link>
+            <Link to={`/bookings/create/${id}`}>Book Now</Link>
           </div>
         </div>
       )}

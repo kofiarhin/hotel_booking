@@ -30,6 +30,8 @@ if (process.env.NODE_ENV === "production") {
     return res.sendFile(fileUrl);
   });
 }
+
+// error handler
 app.use(errorHandler);
 
 const port = process.env.PORT;

@@ -86,3 +86,37 @@ GET http://localhost:5000/bookings
 # delete all bookings
 ###
 DELETE http://localhost:5000/bookings
+
+# create user
+###
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "lebron james",
+    "email": "lebron@gmail.com",
+    "password": "password"
+}
+
+# login user
+###
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "kofiarhin@gmail.com",
+    "password": "password"
+}
+
+
+# logout User
+###
+http://localhost:5000/api/users/logout
+
+# check auth
+###
+GET http://localhost:5000/auth
+
+#verify admin
+###
+GET http://localhost:5000/admin

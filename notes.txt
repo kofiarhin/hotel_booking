@@ -25,10 +25,8 @@ primary color: #A49169
 create an image carousel for images to display
 
 
-https://kf-hotel-booking-app.onrender.com/book/65c642f094e7d3957c1cbc83
-https://kf-hotel-booking-app.onrender.com/rooms
-https://kf-hotel-booking-app.onrender.com/rooms/65c6434194e7d3957c1cbc93
-https://kf-hotel-booking-app.onrender.com/bookings/65c6434194e7d3957c1cbc93
+app url
+https://kf-hotel-booking-app.onrender.com/
 
 
 import "./booking.scss";

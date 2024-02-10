@@ -5,8 +5,10 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const roomRoutes = require("./routes/roomRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
+const userRoutes = require("./routes/userRoutes");
 const { errorHandler } = require("./middleware/errorHandler");
 const cors = require("cors");
+const { auth, verifyAdmin } = require("./middleware/authMiddleware");
 const app = express();
 
 // setup middleware
@@ -19,8 +21,10 @@ connectDB();
 
 // setup routes
 
+// remove this later
 app.use("/api/rooms", roomRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.use("/api/users", userRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/build")));

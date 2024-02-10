@@ -7,7 +7,6 @@ const Header = () => {
         <h1>LaVila</h1>
       </Link>
       <nav>
-        <Link to="/bookings"> Bookings </Link>
         <Link to="/rooms" className="cta">
           {" "}
           Book Now{" "}

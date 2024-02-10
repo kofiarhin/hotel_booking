@@ -7,9 +7,10 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Room from "./Pages/Room/Room";
 import Rooms from "./Pages/Rooms";
-import Booking from "./Pages/Booking/Booking";
 import Footer from "./components/Footer/Footer";
 import Bookings from "./Pages/Bookings/Bookings";
+import Success from "./Pages/Success/Success";
+import CreateBooking from "./Pages/CreateBooking/CreateBooking";
 
 const App = () => {
   return (
@@ -22,7 +23,9 @@ const App = () => {
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/rooms/:id" element={<Room />} />
             <Route path="/bookings" element={<Bookings />} />
-            <Route path="/bookings/create/:id" element={<Booking />} />
+            <Route path="/bookings/create/:id" element={<CreateBooking />} />
+
+            <Route path="/success" element={<Success />} />
           </Routes>
 
           <Footer />

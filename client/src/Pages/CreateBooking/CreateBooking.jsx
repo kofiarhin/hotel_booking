@@ -1,4 +1,4 @@
-import "./booking.scss";
+import "./createBooking.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import { createBooking, reset } from "../../features/Booking/bookingSlice";
 import { getRoom } from "../../utils/helper";
 import Carousel from "../../components/Carousel/Carousel";
 
-const Booking = () => {
+const CreateBooking = () => {
   const { id: roomId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,10 +17,10 @@ const Booking = () => {
 
   const [room, setRoom] = useState(null);
   const [formData, setFormData] = useState({
-    name: "test test",
-    email: "test@gmail.com",
-    checkIn: "2024-01-12",
-    checkOut: "2024-01-13",
+    name: "",
+    email: "",
+    checkIn: "",
+    checkOut: "",
   });
 
   const { name, email, checkIn, checkOut } = formData;
@@ -38,7 +38,7 @@ const Booking = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate("/rooms");
+      navigate("/success");
       dispatch(reset());
     }
   }, [isSuccess]);
@@ -141,4 +141,4 @@ const Booking = () => {
   );
 };
 
-export default Booking;
+export default CreateBooking;

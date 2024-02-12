@@ -14,8 +14,13 @@ import EditRoom from "./Pages/EditRoom";
 import Bookings from "./Pages/Bookings/Bookings";
 import Booking from "./Pages/Booking/Booking";
 import Footer from "./components/Footer/Footer";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRooms());
+  }, []);
   return (
     <div className="container">
       <Router>
@@ -28,6 +33,9 @@ const App = () => {
           <Route path="/rooms/edit/:id" element={<EditRoom />} />
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/bookings/:id" element={<Booking />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
 
         <Footer />

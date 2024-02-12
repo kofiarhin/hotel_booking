@@ -9,6 +9,7 @@ const Room = () => {
   const [room, setRoom] = useState(null);
   const { id } = useParams();
   const { isSuccess } = useSelector((state) => state.room);
+  const { user } = useSelector((state) => state.auth);
   useSelector(() => {
     if (isSuccess) {
       navigate("/rooms");
@@ -18,7 +19,7 @@ const Room = () => {
 
   useEffect(() => {
     const getRoom = async () => {
-      const res = await fetch(`/rooms/${id}`);
+      const res = await fetch(`/api/rooms/${id}`);
       if (res.ok) {
         const data = await res.json();
         setRoom(data);
@@ -43,10 +44,14 @@ const Room = () => {
           <div className="text-wrapper">
             <p> {room.desc} </p>
           </div>
-          <div className="button-wrapper">
-            <button onClick={handleDelete}> Delete Room </button>
-            <Link to={`/rooms/edit/${room._id}`}> Edit Room </Link>
-          </div>
+          {user && (
+            <>
+              <div className="button-wrapper">
+                <button onClick={handleDelete}> Delete Room </button>
+                <Link to={`/rooms/edit/${room._id}`}> Edit Room </Link>
+              </div>
+            </>
+          )}
         </div>
       ) : (
         <div>

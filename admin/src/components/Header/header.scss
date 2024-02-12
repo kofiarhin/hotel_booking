@@ -1,3 +1,4 @@
+$primary: #A49169;
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -8,5 +9,22 @@
         display: inline-block;
         margin-left: 1rem;
         font-weight: 500;
+    }
+
+    button {
+        outline: none;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin-left: 1rem;
+        cursor: pointer;
+        border: none;
+        background-color: $primary;
+        transition: all easet-in-out 300ms;
+        color: white;
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+        
     }
 }

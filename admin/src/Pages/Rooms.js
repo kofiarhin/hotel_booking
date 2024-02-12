@@ -7,9 +7,9 @@ const Rooms = () => {
   const dispatch = useDispatch();
   const { isSuccess, rooms } = useSelector((state) => state.room);
 
-  useEffect(() => {
-    dispatch(getRooms());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getRooms());
+  // }, []);
 
   useEffect(() => {
     dispatch(reset());

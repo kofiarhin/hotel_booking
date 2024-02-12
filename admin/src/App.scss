@@ -1,3 +1,4 @@
+$primary: #A49169;
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +25,13 @@ a {
   padding-bottom: 8rem;
 }
 
-
+.error {
+  color: red;
+  font-weight: 700;
+  &.center {
+    text-align: center;
+  }
+}
 
 .form-wrapper {
   width: 540px;
@@ -61,7 +68,7 @@ padding-bottom: 4rem;
        outline: none;
        border: none;
        cursor: pointer;
-       background-color: black;
+       background-color: $primary; 
        color: white;
        padding: 0.8rem 0rem;
        font-size: 1rem;

@@ -47,6 +47,7 @@ const getBooking = async (req, res, next) => {
 
 // update booking
 const updateBooking = async (req, res, next) => {
+  console.log("update bookings");
   const { id } = req.params;
 
   try {
@@ -57,6 +58,8 @@ const updateBooking = async (req, res, next) => {
       },
       { new: true }
     );
+
+    // get all bookings
     const bookings = await Booking.find();
     return res.status(200).json(bookings);
   } catch (error) {
@@ -99,6 +102,7 @@ const deleteAllBookings = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = {
   getBookings,
   getBooking,

@@ -15,10 +15,12 @@ import Bookings from "./Pages/Bookings/Bookings";
 import Booking from "./Pages/Booking/Booking";
 import Footer from "./components/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import { getBookings } from "./features/booking/bookingSlice";
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getBookings());
     dispatch(getRooms());
   }, []);
   return (

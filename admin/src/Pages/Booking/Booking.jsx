@@ -1,22 +1,50 @@
 import useFetch from "../../hooks/useFetch";
 import "./booking.scss";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {
+  deleteBooking,
+  reset,
+  updateBooking,
+} from "../../features/booking/bookingSlice";
 
 const Booking = () => {
-  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const { id } = useParams();
+  const { isSuccess, isError, message } = useSelector((state) => state.booking);
   const url = `/bookings/${id}`;
 
   const { data, error } = useFetch(url);
 
+  // check if delete is succcessful
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/bookings");
+      dispatch(reset());
+    }
+  }, [isSuccess, dispatch, navigate]);
+
   const handleConfirm = () => {
     // Add your logic for confirming the booking
-    alert(`Booking confirmed for ${data.name}`);
+
+    const dataToSubmit = {
+      bookingId: id,
+      confirmed: true,
+    };
+
+    console.log("confirm");
+
+    dispatch(updateBooking(dataToSubmit));
   };
 
   const handleDelete = () => {
     // Add your logic for deleting the booking
-    alert(`Booking deleted for ${data.name}`);
+    dispatch(deleteBooking(id));
   };
 
   return (
@@ -37,7 +65,9 @@ const Booking = () => {
               <strong>Type:</strong> {data.roomId.name}
             </div>
             <div className="buttons">
-              <button onClick={handleConfirm}>Confirm</button>
+              {data.confirmed ? null : (
+                <button onClick={handleConfirm}>Confirm</button>
+              )}
               <button onClick={handleDelete}>Delete</button>
             </div>
           </div>

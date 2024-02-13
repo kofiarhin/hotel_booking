@@ -79,7 +79,7 @@ export const deleteRoom = createAsyncThunk(
   "room/delete",
   async (roomId, thunkApi) => {
     try {
-      const res = await fetch(`/api//rooms/${roomId}`, {
+      const res = await fetch(`/api/rooms/${roomId}`, {
         method: "DELETE",
       });
 
@@ -102,9 +102,8 @@ export const updateRoom = createAsyncThunk(
   async (roomData, thunkApi) => {
     const { roomId, ...rest } = roomData;
 
-    console.log(roomId);
     try {
-      const res = await fetch(`/rooms/${roomId}`, {
+      const res = await fetch(`/api/rooms/${roomId}`, {
         headers: {
           "Content-Type": "application/json",
         },

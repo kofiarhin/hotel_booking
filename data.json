@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Superior Room",
+        "desc": "Our generous Superior Rooms boast an average 32 sqm / 344 sqf of space.Classic style blends beautifully with contemporary elegance and amenities. Sleep soundly in a sumptuous queen size bed with crisp linens and refresh in the white Italian marble bathroom with its deep bath and White Company toiletries. This luxurious room is well beyond what one might consider standard",
+        "price": 200,
+        "roomNumbers": [],
+        "img": []
+    },
+    {
+        "name": "Deluxe Room",
+        "desc": "elegant classic style. The large King size bed with crisp linens ensure a peaceful night’s sleep. Elegantly designed bathrooms feature sleek white Italian marble, a convenient walk-in shower and separate bath. Simply relax in pure comfort, and pamper yourself with a cosy bathrobe and White Company toiletries.",
+        "price": 300,
+        "roomNumbers": [],
+        "img": []
+    },
+    {
+        "name": "Executive Room",
+        "desc": "Indulge in a luxurious and spacious Executive room, with an average 50 sqm/560sq ft, is one of our most spacious accommodations. Relax in the generous seating area with comfortable sofa and armchairs or work peacefully at the practical desk. A sumptuous King size bed with crisp linens will ensure a soothing sleep whilst the sleek white Italian marble bathroom with its walk-in shower and separate bath is perfect for pampering yourself with White Company toiletries.",
+        "price": 400,
+        "roomNumbers": [],
+        "img": []
+    }
+]

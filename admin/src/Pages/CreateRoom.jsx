@@ -8,7 +8,9 @@ import { uploadImage } from "../utils/helper";
 const CreateRoom = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isSuccess, isError, message } = useSelector((state) => state.room);
+  const { isSuccess, isError, isLoading, message } = useSelector(
+    (state) => state.room
+  );
 
   const [files, setFiles] = useState("");
   const [formData, setFormData] = useState({
@@ -71,6 +73,14 @@ const CreateRoom = () => {
       console.log(error.message);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div>
+        <h1 className="heading">Loading...</h1>
+      </div>
+    );
+  }
   return (
     <div>
       <h1 className="heading">Create Room</h1>

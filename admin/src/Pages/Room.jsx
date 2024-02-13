@@ -7,31 +7,45 @@ const Room = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [room, setRoom] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const { isSuccess } = useSelector((state) => state.room);
   const { user } = useSelector((state) => state.auth);
-  useSelector(() => {
-    if (isSuccess) {
-      navigate("/rooms");
-      dispatch(reset());
-    }
-  }, [isSuccess]);
 
   useEffect(() => {
     const getRoom = async () => {
-      const res = await fetch(`/api/rooms/${id}`);
-      if (res.ok) {
-        const data = await res.json();
-        setRoom(data);
+      try {
+        setIsLoading(true);
+        const res = await fetch(`/api/rooms/${id}`);
+        if (res.ok) {
+          const data = await res.json();
+          setIsLoading(false);
+          setRoom(data);
+        }
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
       }
     };
 
+    if (isSuccess) {
+      dispatch(reset());
+    }
+
     getRoom();
-  }, []);
+  }, [isSuccess]);
 
   const handleDelete = async () => {
     dispatch(deleteRoom(id));
   };
+
+  if (isLoading) {
+    return (
+      <div>
+        <h1 className="heading">Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -5,15 +5,25 @@ import { Link } from "react-router-dom";
 
 const Rooms = () => {
   const dispatch = useDispatch();
-  const { isSuccess, rooms } = useSelector((state) => state.room);
+  const { isSuccess, rooms, isLoading } = useSelector((state) => state.room);
 
   // useEffect(() => {
   //   dispatch(getRooms());
   // }, []);
 
   useEffect(() => {
-    dispatch(reset());
+    if (isSuccess) {
+      dispatch(reset());
+    }
   }, [isSuccess]);
+
+  if (isLoading) {
+    return (
+      <div>
+        <h1 className="heading">Loading.....</h1>
+      </div>
+    );
+  }
 
   return (
     <div id="rooms">
@@ -36,7 +46,9 @@ const Rooms = () => {
               );
             })}{" "}
           </div>
-        ) : null}
+        ) : (
+          <h1 className="heading">There are no Rooms</h1>
+        )}
       </div>
     </div>
   );

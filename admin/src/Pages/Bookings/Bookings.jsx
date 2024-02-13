@@ -9,11 +9,12 @@ const Bookings = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isSuccess, bookings } = useSelector((state) => state.booking);
+  const { isSuccess, bookings, isLoading } = useSelector(
+    (state) => state.booking
+  );
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch(getBookings());
     if (!user) {
       navigate("/login");
     }
@@ -22,11 +23,23 @@ const Bookings = () => {
   useEffect(() => {
     dispatch(reset());
   }, [isSuccess]);
+
+  if (isLoading) {
+    return (
+      <div>
+        <h1 className="heading">Loading...</h1>
+      </div>
+    );
+  }
   return (
     <div>
       <h1 className="heading">Bookings</h1>
 
-      {bookings.length > 0 && <BookingList data={bookings} />}
+      {bookings.length > 0 ? (
+        <BookingList data={bookings} />
+      ) : (
+        <h1 className="heading"> No Bookings found</h1>
+      )}
     </div>
   );
 };

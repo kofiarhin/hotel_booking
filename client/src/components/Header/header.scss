@@ -6,14 +6,41 @@ $primary: #A49169;
     align-items: center;
     padding: 1rem 0rem;
 
-   nav  a {
+    a {
         display: inline-block;
         margin-left: 1rem;
         font-weight: 500;
-        &.cta {
-            background-color: $primary;
-                padding: 0.5rem 1rem;
-                color: white;
+    }
+
+    button {
+        outline: none;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin-left: 1rem;
+        cursor: pointer;
+        border: none;
+        background-color: $primary;
+        transition: all easet-in-out 300ms;
+        color: white;
+
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+
+        a {
+            margin-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            margin-left: 1rem;
+            margin-top: 1rem;
         }
     }
 }

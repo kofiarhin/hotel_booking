@@ -27,6 +27,58 @@ export const getBookings = createAsyncThunk(
   }
 );
 
+// delete single booking
+export const deleteBooking = createAsyncThunk(
+  "booking/delete",
+  async (id, thunkApi) => {
+    try {
+      const res = await fetch(`/api/bookings/${id}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        return thunkApi.rejectWithValue(data);
+      }
+
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.mesage);
+    }
+  }
+);
+
+// update booking
+export const updateBooking = createAsyncThunk(
+  "booking/updaste",
+  async (bookingData, thunkApi) => {
+    try {
+      const { bookingId, ...rest } = bookingData;
+
+      console.log("???", rest);
+      const res = await fetch(`/api/bookings/${bookingId}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "PUT",
+        body: JSON.stringify(rest),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        return thunkApi.rejectWithValue(data);
+      }
+
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.mesasge);
+    }
+  }
+);
+
+// booking slice
 const bookingSlice = createSlice({
   name: "booking",
   initialState,
@@ -50,6 +102,34 @@ const bookingSlice = createSlice({
       .addCase(getBookings.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
+        state.message = action.payload;
+      })
+      .addCase(deleteBooking.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteBooking.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.bookings = state.bookings.filter(
+          (booking) => booking._id !== action.payload.id.toString()
+        );
+      })
+      .addCase(deleteBooking.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(updateBooking.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateBooking.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.bookings = action.payload;
+      })
+      .addCase(updateBooking.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
         state.message = action.payload;
       });
   },

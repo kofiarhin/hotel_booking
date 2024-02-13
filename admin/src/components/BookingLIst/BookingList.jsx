@@ -19,7 +19,7 @@ const BookingList = ({ data }) => {
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td> {item.name} </td>
               <td> {item.email} </td>
               <td> {item.roomId.name} </td>

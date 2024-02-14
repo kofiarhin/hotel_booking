@@ -70,64 +70,69 @@ const CreateBooking = () => {
       {room ? (
         <div id="booking">
           {/* carousel */}
-          <Carousel data={room.img} title={room.name} />
+
+          <div className="booking-img-wrapper">
+            <Carousel data={room.img} title={room.name} />
+          </div>
 
           <div className="col-wrapper">
-            <div className="col">
+            <div className="col container">
               <div className="text-wrapper">
-                <p> {room.desc} </p>
+                <p className="text-medium"> {room.desc} </p>
                 <h2> £{room.price.toFixed(2)} </h2>
               </div>
             </div>
-            <div className="form-wrapper">
-              <h1 className="heading">Book Now</h1>
-              <form onSubmit={handleSubmit}>
-                <div className="input-group">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter Name"
-                    value={name}
-                    onChange={handleChange}
-                  />
-                </div>
+            <div className="container">
+              <div className="form-wrapper">
+                <h1 className="heading">Book Now</h1>
+                <form onSubmit={handleSubmit}>
+                  <div className="input-group">
+                    <label htmlFor="name">Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Enter Name"
+                      value={name}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-                <div className="input-group">
-                  <label htmlFor="Email">Email</label>
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={handleChange}
-                  />
-                </div>
+                  <div className="input-group">
+                    <label htmlFor="Email">Email</label>
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Enter Email"
+                      value={email}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-                <div className="input-group">
-                  <label htmlFor="checkIn">Check In</label>
-                  <input
-                    type="date"
-                    name="checkIn"
-                    value={checkIn}
-                    onChange={handleChange}
-                  />
-                </div>
+                  <div className="input-group">
+                    <label htmlFor="checkIn">Check In</label>
+                    <input
+                      type="date"
+                      name="checkIn"
+                      value={checkIn}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-                <div className="input-group">
-                  <label htmlFor="checkOut">Check Out</label>
-                  <input
-                    type="date"
-                    name="checkOut"
-                    value={checkOut}
-                    onChange={handleChange}
-                  />
-                </div>
+                  <div className="input-group">
+                    <label htmlFor="checkOut">Check Out</label>
+                    <input
+                      type="date"
+                      name="checkOut"
+                      value={checkOut}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-                <div className="input-group">
-                  <button type="submit">Submit</button>
-                </div>
-              </form>
+                  <div className="input-group">
+                    <button type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

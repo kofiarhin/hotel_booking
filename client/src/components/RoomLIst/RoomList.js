@@ -1,3 +1,4 @@
+import Carousel from "../Carousel/Carousel";
 import "./roomList.scss";
 import { Link } from "react-router-dom";
 const RoomList = ({ rooms }) => {
@@ -7,7 +8,8 @@ const RoomList = ({ rooms }) => {
         {rooms.map((room) => (
           <div key={room._id} className="room-unit">
             <div className="img-wrapper">
-              <img src={room.img[0]} alt="" />
+              <Carousel data={room.img} />
+              {/* <img src={room.img[0]} alt="" /> */}
             </div>
             <Link to={`/rooms/${room._id}`}>
               <h1> {room.name} </h1>

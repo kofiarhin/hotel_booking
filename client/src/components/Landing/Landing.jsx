@@ -8,10 +8,7 @@ const Landing = () => {
   ];
   return (
     <div id="landing">
-      <div className="img-wrapper">
-        {/* <img src="images/landing.jpeg" alt="" /> */}
-        <Carousel data={images} height={80} />
-      </div>
+      <Carousel data={images} />
     </div>
   );
 };

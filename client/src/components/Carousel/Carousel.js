@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 const Carousel = ({ data, title, height }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const cStyles = {
-    height: height ? height + "vh" : "60vh",
-  };
+  // const cStyles = {
+  //   height: height ? height + "vh" : "60vh",
+  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,11 +26,14 @@ const Carousel = ({ data, title, height }) => {
 
   return (
     <div id="carousel">
-      {title && <h1 className="heading"> {title} </h1>}
-      <div className="img-wrapper" style={cStyles}>
-        <img src={data[currentIndex]} alt="" />
-      </div>
+      <img src={data[currentIndex]} />
     </div>
+    // <div id="carousel">
+    //   {title && <h1 className="heading"> {title} </h1>}
+    //   <div className="img-wrapper">
+    //     <img src={data[currentIndex]} alt="" />
+    //   </div>
+    // </div>
   );
 };
 

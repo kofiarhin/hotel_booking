@@ -12,7 +12,7 @@ const Rooms = () => {
     dispatch(getRooms());
   }, []);
   return (
-    <div>
+    <div className="container">
       <h1 className="heading">Rooms</h1>
 
       {rooms.length > 0 ? (

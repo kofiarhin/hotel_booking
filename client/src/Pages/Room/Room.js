@@ -23,15 +23,22 @@ const Room = () => {
   }, []);
   return (
     <div id="room">
-      {room && <Carousel data={room.img} title={room.name} />}
       {room && (
-        <div className="room-wrapper">
-          <div className="text-wrapper">
-            <p> {room.desc} </p>
-          </div>
+        <div className="room-img-wrapper">
+          <Carousel data={room.img} title={room.name} />
+        </div>
+      )}
+      {room && (
+        <div className="container">
+          <div className="room-wrapper">
+            <div className="text-wrapper">
+              <h1 className="heading"> {room.name} </h1>
+              <p> {room.desc} </p>
+            </div>
 
-          <div className="cta-wrapper">
-            <Link to={`/bookings/create/${id}`}>Book Now</Link>
+            <div className="cta-wrapper">
+              <Link to={`/bookings/create/${id}`}>Book Now</Link>
+            </div>
           </div>
         </div>
       )}

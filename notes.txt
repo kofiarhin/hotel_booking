@@ -28,5 +28,15 @@ create an image carousel for images to display
 app url
 https://kf-hotel-booking-app.onrender.com/
 
+landing text
+WELCOME TO AN OASIS OF LUXURY
+IN THE HEART OF LONDON
+
+
+Experience a haven of opulence nestled in the vibrant heart of London.
+
+
+Indulge in the epitome of refined luxury as you step into a sanctuary amidst the bustling energy of London. Our oasis beckons with an exquisite blend of sophistication and comfort, promising an unparalleled experience in the very heart of this dynamic city. Discover a realm where lavishness meets convenience, where every detail is curated to enhance your stay and elevate your senses. Welcome to a retreat of unparalleled elegance, right in the midst of the pulsating rhythm of London life.
+
 
 

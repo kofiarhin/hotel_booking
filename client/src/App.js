@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import Home from "./Pages/Home";
+import Home from "./Pages/Home/Home";
 import Header from "./components/Header/Header";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
@@ -15,7 +15,7 @@ import CreateBooking from "./Pages/CreateBooking/CreateBooking";
 const App = () => {
   return (
     <div>
-      <div className="container">
+      <div className="">
         <Router>
           <Header />
           <Routes>

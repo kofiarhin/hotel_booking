@@ -27,11 +27,15 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/users", userRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/build")));
+  // define paths
+  const publicPath = path.join(__dirname, "./build");
+  const filePath = path.resolve(__dirname, ".", "build", "index.html");
+
+  app.use(express.static(publicPath));
 
   app.get("*", (req, res) => {
-    const fileUrl = path.resolve(__dirname, "server", "build");
-    return res.sendFile(fileUrl);
+    // const fileUrl = path.resolve(__dirname, "server", "build");
+    return res.sendFile(filePath);
   });
 }
 

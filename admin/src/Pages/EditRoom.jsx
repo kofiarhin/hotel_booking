@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateRoom, reset } from "../features/Room/roomSlice";
+
 const EditRoom = () => {
+  const { user } = useSelector((state) => state.auth);
   const { isSuccess } = useSelector((state) => state.room);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,6 +46,12 @@ const EditRoom = () => {
       navigate(`/rooms/${id}`);
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login`);
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({

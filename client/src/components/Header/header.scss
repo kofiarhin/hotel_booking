@@ -6,15 +6,18 @@ $primary: #a49169;
   align-items: center;
   padding: 1rem 0rem;
 
-  a {
+  nav a {
     display: inline-block;
     margin-left: 1rem;
     font-weight: 500;
+    text-transform: capitalize;
+    font-size: 1.2rem;
     &.cta {
       background-color: $primary;
       padding: 0.5rem 1rem;
       color: white;
       border: none;
+      font-size: 1rem;
     }
   }
 

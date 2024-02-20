@@ -11,6 +11,8 @@ import Footer from "./components/Footer/Footer";
 import Bookings from "./Pages/Bookings/Bookings";
 import Success from "./Pages/Success/Success";
 import CreateBooking from "./Pages/CreateBooking/CreateBooking";
+import Spa from "./Pages/Spa/Spa";
+import Dining from "./Pages/Dining/Dining";
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
             <Route path="/rooms/:id" element={<Room />} />
             <Route path="/bookings" element={<Bookings />} />
             <Route path="/bookings/create/:id" element={<CreateBooking />} />
+            <Route path="/spa" element={<Spa />} />
+            <Route path="/dining" element={<Dining />} />
 
             <Route path="/success" element={<Success />} />
           </Routes>

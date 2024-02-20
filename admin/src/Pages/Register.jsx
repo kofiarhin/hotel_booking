@@ -8,9 +8,9 @@ const Register = () => {
 
   const { isSuccess } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
-    name: "test2 test2",
-    email: "test2@gmail.com",
-    password: "password",
+    name: "",
+    email: "",
+    password: "",
   });
   const { name, email, password } = formData;
 

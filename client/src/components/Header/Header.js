@@ -8,9 +8,11 @@ const Header = () => {
           <h1>LaVila</h1>
         </Link>
         <nav>
+          <Link to="/dining">Dining</Link>
+          <Link to="/spa">spa & Wellness</Link>
           <Link to="/rooms" className="cta">
             {" "}
-            Book Now{" "}
+            Rooms
           </Link>
         </nav>
       </header>

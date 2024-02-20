@@ -9,8 +9,8 @@ const Login = () => {
 
   const { isSuccess, isError, message } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
-    email: "kofiarhin@gmail.com",
-    password: "password",
+    email: "",
+    password: "",
   });
   const { email, password } = formData;
 

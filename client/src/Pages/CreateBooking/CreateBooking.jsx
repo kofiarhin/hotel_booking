@@ -17,10 +17,10 @@ const CreateBooking = () => {
 
   const [room, setRoom] = useState(null);
   const [formData, setFormData] = useState({
-    name: "test test",
-    email: "test@gmail.com",
-    checkIn: "2024-02-13",
-    checkOut: "2024-02-15",
+    email: "",
+    name: "",
+    checkIn: "",
+    checkOut: "",
   });
 
   const { name, email, checkIn, checkOut } = formData;

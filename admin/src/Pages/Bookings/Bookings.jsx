@@ -18,7 +18,9 @@ const Bookings = () => {
     if (!user) {
       navigate("/login");
     }
-  }, []);
+
+    dispatch(getBookings());
+  }, [user]);
 
   useEffect(() => {
     dispatch(reset());

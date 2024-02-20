@@ -9,6 +9,7 @@ const Carousel = ({ data, title, height }) => {
   // };
 
   useEffect(() => {
+    console.log(data.length);
     const interval = setInterval(() => {
       setCurrentIndex((prevState) => {
         if (prevState == data.length - 1) {

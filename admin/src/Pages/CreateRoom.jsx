@@ -12,15 +12,24 @@ const CreateRoom = () => {
     (state) => state.room
   );
 
+  const { user } = useSelector((state) => state.auth);
+
   const [files, setFiles] = useState("");
   const [formData, setFormData] = useState({
-    name: "test name",
-    desc: "test description",
-    price: 200,
-    rooms: "400,200,150,233",
+    name: "",
+    desc: "",
+    price: "",
+    rooms: "",
   });
 
   const { name, desc, price, rooms } = formData;
+
+    useEffect(() => {
+      if (!user) {
+        navigate("/login");
+      }
+      dispatch(reset());
+    }, [user]);
 
   useEffect(() => {
     if (isSuccess) {

@@ -16,8 +16,8 @@ const Header = () => {
         <h1>LaVila</h1>
       </Link>
       <nav>
-        <Link to="/"> Home </Link>
-        <Link to="/rooms">Rooms</Link>
+        {/* <Link to="/"> Home </Link>
+        <Link to="/rooms">Rooms</Link> */}
         {user ? (
           <>
             <Link to="/rooms/create"> Create </Link>

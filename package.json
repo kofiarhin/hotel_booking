@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server/server.js",
-    "client": "npm run start --prefix client",
-    "admin": "npm run start --prefix admin",
+    "client": "npm run dev --prefix client",
+    "admin": "npm run dev --prefix admin",
     "dev-client": "concurrently \"npm run server\" \"npm run client\"",
     "dev-admin": "concurrently \"npm run server\" \"npm run admin\"",
-    "dev-all": "concurrently \"npm run server\" \"npm run admin\"\"npm run client\"",
+    "dev-all": "concurrently \"npm run server\" \"npm run admin\" \"npm run client\"",
     "start": "node server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -28,6 +28,7 @@
     "mongoose": "^8.1.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
   }
 }

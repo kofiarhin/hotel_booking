@@ -14,6 +14,7 @@ const Rooms = () => {
   return (
     <div className="container">
       <h1 className="heading">Rooms</h1>
+      <p>we are here</p>
 
       {rooms.length > 0 ? (
         <RoomList rooms={rooms} />

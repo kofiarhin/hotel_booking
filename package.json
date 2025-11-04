@@ -10,7 +10,9 @@
     "admin": "npm run start --prefix admin",
     "dev-client": "concurrently \"npm run server\" \"npm run client\"",
     "dev-admin": "concurrently \"npm run server\" \"npm run admin\"",
-    "dev-all": "concurrently \"npm run server\" \"npm run admin\"\"npm run client\""
+    "dev-all": "concurrently \"npm run server\" \"npm run admin\"\"npm run client\"",
+    "start": "node server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",

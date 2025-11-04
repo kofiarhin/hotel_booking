@@ -28,6 +28,7 @@ const Rooms = () => {
   return (
     <div id="rooms">
       <h1 className="heading">Rooms</h1>
+      <P>testing mic</P>
 
       <div className="room-container">
         {rooms.length > 0 ? (
